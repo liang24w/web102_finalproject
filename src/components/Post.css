@@ -1,0 +1,40 @@
+.Card {
+    backdrop-filter: blur(2px);
+    border: 1px solid #64B668;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 700px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 25px;
+}
+
+.name {
+    color:black;
+    padding-left:30px;
+    font-size: 24px;
+}
+
+.moreButton {
+    width: 30px;
+    float:right;
+
+}
+.moreButton:hover {
+    cursor: pointer;
+}
+
+.pink {
+    color: pink;
+}
+
+.green {
+    color: green;
+}
+
+.purple {
+    color: purple;
+}

@@ -1,0 +1,22 @@
+.navbar {
+    height: 5%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #64B668;
+    padding: 15px 10px 15px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-item {
+    display:flex;
+    flex-direction: row;
+    right:0;
+    position:fixed;
+    margin-right:2%;
+    gap: 10px;
+  }
