@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../client'
-import { Link, useParams } from 'react-router-dom';
 
 const LoadingPage = () =>  {
 

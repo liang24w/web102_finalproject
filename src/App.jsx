@@ -13,18 +13,19 @@ function App() {
   let element = useRoutes([
     {
       path: "",
-      element:<WelcomePage />
-    },
-    {
-      path: "/home",
+      // element:<WelcomePage />
       element:<ReadPosts data={posts}/>
     },
+    // {
+    //   path: "/home",
+    //   element:<ReadPosts data={posts}/>
+    // },
     {
-      path:"home/create",
+      path:"/create",
       element: <CreatePost />
     },
     {
-      path: "home/post/:id",
+      path: "/post/:id",
       element:<PostInfo data={posts} />
     }
   ]);

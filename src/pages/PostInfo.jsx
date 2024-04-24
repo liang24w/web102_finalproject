@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../client'
 import { Link, useParams } from 'react-router-dom';
+import LoadingPage from './LoadingPage';
 
 const PostInfo = (props) =>  {
 
@@ -26,8 +27,11 @@ const PostInfo = (props) =>  {
 
     return (
         <div>
-            <p>This is post number {posts.id}! </p>
-            <Link to='/home'><button className="back">Go Back</button></Link>
+            { posts && posts.id != null ?
+                <p>This is post number {posts.id}! <p>{posts.title}</p>
+                <Link to='/'><button className="back">Go Back</button></Link> </p>
+                :  <h3>{<LoadingPage />}</h3>
+            }
         </div>
     )
 }
