@@ -13,7 +13,7 @@ const PostInfo = (props) =>  {
         const fetchPost = async (event) => {
 
             const {data} = await supabase
-                .from('Posts').select('id, title')
+                .from('Posts').select('id, title, content, upvotes, comments')
                 .eq('id', id)
                 .limit(1)
                 .single()
@@ -28,8 +28,20 @@ const PostInfo = (props) =>  {
     return (
         <div>
             { posts && posts.id != null ?
-                <p>This is post number {posts.id}! <p>{posts.title}</p>
-                <Link to='/'><button className="back">Go Back</button></Link> </p>
+                <div className="postSection">
+                    <p>{posts.title}</p>
+                    <p>{posts.content}</p>
+                    <p>{posts.upvotes} upvotes</p>
+
+                    <div className="commentSection">
+                        <p>
+                            {posts.comments.map((comment) => (
+                            <li key={posts.id}>{comment}</li>))}
+                        </p>
+                    </div>
+                    
+                    <Link to='/'><button className="back">Go Back</button></Link> 
+                </div>
                 :  <h3>{<LoadingPage />}</h3>
             }
         </div>

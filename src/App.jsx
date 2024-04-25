@@ -13,13 +13,8 @@ function App() {
   let element = useRoutes([
     {
       path: "",
-      // element:<WelcomePage />
       element:<ReadPosts data={posts}/>
     },
-    // {
-    //   path: "/home",
-    //   element:<ReadPosts data={posts}/>
-    // },
     {
       path:"/create",
       element: <CreatePost />
@@ -32,11 +27,8 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <div>
-        <h2>SimsSocial</h2>
-      </div>
       {element}
+      <Navbar />
     </>
   )
 }

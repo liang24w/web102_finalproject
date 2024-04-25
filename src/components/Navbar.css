@@ -10,6 +10,7 @@
     flex-direction: row;
     align-items: center;
     text-align: center;
+    border: 2px solid black;
   }
 
   .nav-item {
@@ -19,4 +20,9 @@
     position:fixed;
     margin-right:2%;
     gap: 10px;
+  }
+
+  .navtext {
+    color: #efefef;
+    font-size: 30px;
   }

@@ -6,6 +6,11 @@
   color-scheme: light dark;
   color: black;
   background-color: #efefef;
+  background-image: url("https://pbs.twimg.com/media/BsrhAONCAAMIV4F.jpg:large");
+  background-repeat: no-repeat, repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  /* background-image: linear-gradient(white, green); */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

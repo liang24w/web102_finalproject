@@ -6,9 +6,9 @@ const Navbar = () => {
 
     return (
         <div className="navbar">
-            SimsSocial
+            <h3 className="navtext">SimsSocial</h3>
             <div className="nav-item">
-                <Link to="/home"><p>Home</p></Link>
+                <Link to=""><p>Home</p></Link>
                 <Link to="/home/create"><p>Create Post</p></Link>
             </div>
         </div>

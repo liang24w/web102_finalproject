@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Post from '../components/Post';
 import { supabase } from '../client'
 import LoadingPage from './LoadingPage';
+import './ReadPosts.css'
 
 const ReadPosts = (props) => {
 
@@ -25,10 +26,23 @@ const ReadPosts = (props) => {
     
     return (
         <div className="ReadPosts">
+            <div>
+                
+                <input 
+                    className="searchBar"
+                    type="text"
+                    placeholder="Search Bar"
+                />
+                <p>
+                    <button className="sort">Newest</button>
+                    <button className="sort">Most Popular</button> 
+                </p>
+
+            </div>
             {
                 posts && posts.length > 0 ?
                 posts.map((post,index) => 
-                   <Post id={post.id} title={post.title} content={post.content}/>
+                   <Post id={post.id} title={post.title} content={post.content} upvotes={post.upvotes} comments={post.comments}/>
                 ) : <h3>{<LoadingPage />}</h3>
             }
         </div>  
