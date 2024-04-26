@@ -7,6 +7,8 @@ import './ReadPosts.css'
 const ReadPosts = (props) => {
 
     const [posts, setPosts] = useState([]);
+    const [searchInput, setSearchInput] = useState("");
+    const [filteredResults, setFilteredResults] = useState([]);
 
     useEffect(() => {
         setPosts(props.data);
@@ -22,7 +24,22 @@ const ReadPosts = (props) => {
                 setPosts(data);
         }
         fetchPost()
+        console.log(posts)
+        // console.log(posts[0].title)
     }, [props]);
+
+    const searchItems = searchValue => {
+        setSearchInput(searchValue);
+        if (searchValue !== "") {
+          const filteredData = posts.filter(item => 
+            typeof item.title === "string" && 
+            item.title.toLowerCase().includes(searchValue.toLowerCase())
+          );
+          setFilteredResults(filteredData);
+        } else {
+          setFilteredResults(posts);
+        }
+      };
     
     return (
         <div className="ReadPosts">
@@ -32,21 +49,40 @@ const ReadPosts = (props) => {
                     className="searchBar"
                     type="text"
                     placeholder="Search Bar"
+                    onChange={(inputString) => searchItems(inputString.target.value)}
                 />
                 <p>
+                    {/* sort posts object by posts.created_at and posts.upvotes */}
                     <button className="sort">Newest</button>
                     <button className="sort">Most Popular</button> 
                 </p>
 
             </div>
-            {
-                posts && posts.length > 0 ?
-                posts.map((post,index) => 
+            
+            {searchInput.length > 0
+                ?
+                filteredResults.map((post,index) => 
                    <Post id={post.id} title={post.title} content={post.content} upvotes={post.upvotes} comments={post.comments}/>
-                ) : <h3>{<LoadingPage />}</h3>
+                )
+                :
+                posts && posts.length > 0 
+                    ?
+                    posts.map((post,index) => 
+                        <Post id={post.id} title={post.title} content={post.content} upvotes={post.upvotes} comments={post.comments}/>
+                    ) 
+                    : 
+                    <h3>{<LoadingPage />}</h3> 
+                
             }
-        </div>  
+            </div>
     )
 }
+                                     
+            // {
+            //     posts && posts.length > 0 ?
+            //     posts.map((post,index) => 
+            //        <Post id={post.id} title={post.title} content={post.content} upvotes={post.upvotes} comments={post.comments}/>
+            //     ) : <h3>{<LoadingPage />}</h3>
+            // }
 
 export default ReadPosts;
