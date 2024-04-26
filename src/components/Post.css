@@ -11,27 +11,16 @@
 .name {
     color:black;
     font-size: 24px;
+    display: inline-block;
 }
 
 .moreButton {
     width: 20px;
     float:right;
-
 }
+
 .moreButton:hover {
-    cursor: pointer;
-}
-
-.pink {
-    color: pink;
-}
-
-.green {
-    color: green;
-}
-
-.purple {
-    color: purple;
+    cursor: url('../assets/pbcurscolor.png'), pointer;
 }
 
 .upvotes {

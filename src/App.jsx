@@ -7,6 +7,7 @@ import PostInfo from './pages/PostInfo'
 import WelcomePage from './pages/WelcomePage'
 import Navbar from './components/Navbar'
 import EditPost from './pages/EditPost'
+import CustomCursor from './assets/pbcurs.png'
 
 function App() {
 
@@ -31,8 +32,13 @@ function App() {
 
   return (
     <>
+    <div 
+      // style={{
+      //   cursor: "url(" + CustomCursor + "), wait"
+      // }}
+      >
       {element}
-      <Navbar />
+      <Navbar /></div>
     </>
   )
 }

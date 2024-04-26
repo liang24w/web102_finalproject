@@ -9,10 +9,10 @@
 
 .commentSection {
     background-color: #bfbfbf;
-    padding: 5px;  
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 15px;  
+    padding-top:5px;
     margin-bottom: 2%;
+    border-radius: 5px;
 }
 
 .commentInput {

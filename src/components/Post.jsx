@@ -15,7 +15,7 @@ const Card = (props) =>  {
           <Link to={'edit/'+ props.id}><img className="moreButton" alt="edit button" src={more} /></Link>
         </div>
           <Link to={'post/'+ props.id}><h2 className="name">{props.title}</h2></Link>
-          {props.content}
+          <div>{props.content}</div>
           
           <div className="upvotes">
             <p>Posted {diffHours} hours ago</p>
