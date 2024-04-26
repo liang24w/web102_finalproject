@@ -40,12 +40,6 @@
     color: purple;
 }
 
-.upvote-icon {
-    width:3%;
-    position:absolute;
-    left:25%;
-}
-
 .upvotes {
     position:relative;
     margin-top: 3%;
