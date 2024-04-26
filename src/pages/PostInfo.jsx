@@ -12,11 +12,11 @@ const PostInfo = (props) =>  {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        setPosts(props.data);
         const fetchPost = async (event) => {
 
             const {data} = await supabase
-                .from('Posts').select('id, title, content, upvotes, comments')
+                .from('Posts')
+                .select('id, title, content, upvotes, comments')
                 .eq('id', id)
                 .limit(1)
                 .single()

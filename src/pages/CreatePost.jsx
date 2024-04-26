@@ -5,14 +5,14 @@ import { supabase } from '../client'
 
 const CreatePost = () => {
 
-    const [post, setPost] = useState({title: ""})
+    const [post, setPost] = useState({title: "", content:""})
 
     const createPost = async (event) => {
         event.preventDefault();
       
         await supabase
           .from('Posts')
-          .insert({title: post.title})
+          .insert({title: post.title, content: post.content})
           .select();
       
         window.location = "/";
@@ -31,8 +31,25 @@ const CreatePost = () => {
     return (
         <div>
             <form>
-                <label for="name">Name</label> <br />
-                <input autocomplete="off" type="text" id="name" name="name" placeholder="Enter crewmate's name" onChange={handleChange} /><br />
+
+                <input 
+                    className="titleText"
+                    autoComplete="off" 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    placeholder="Enter title of post" 
+                    onChange={handleChange} /><br />
+                <br/>
+
+                <textarea 
+                    className="contentText"
+                    autoComplete="off" 
+                    id="content" 
+                    name="content" 
+                    rows="6"
+                    placeholder="Enter content of post" 
+                    onChange={handleChange} /><br />
                 <br/>
 
                 <input type="submit" value="Submit" onClick={createPost} />

@@ -31,12 +31,3 @@ input[type=submit] {
 input[type=submit]:hover {
     border-color: #646cff;
 }
-
-.Radio {
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .Radio-Input {
-    margin: 0 0.5em 0;
-  }

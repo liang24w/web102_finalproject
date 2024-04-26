@@ -13,7 +13,6 @@ const ReadPosts = (props) => {
     useEffect(() => {
         setPosts(props.data);
         const fetchPost = async (event) => {
-            // event.preventDefault();
 
             const {data} = await supabase
                 .from('Posts')
@@ -25,7 +24,6 @@ const ReadPosts = (props) => {
         }
         fetchPost()
         console.log(posts)
-        // console.log(posts[0].title)
     }, [props]);
 
     const searchItems = searchValue => {

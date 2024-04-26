@@ -6,14 +6,14 @@ import ReadPosts from './pages/ReadPosts'
 import PostInfo from './pages/PostInfo'
 import WelcomePage from './pages/WelcomePage'
 import Navbar from './components/Navbar'
+import EditPost from './pages/EditPost'
 
 function App() {
-  const posts = []
 
   let element = useRoutes([
     {
       path: "",
-      element:<ReadPosts data={posts}/>
+      element:<ReadPosts />
     },
     {
       path:"/create",
@@ -21,7 +21,11 @@ function App() {
     },
     {
       path: "/post/:id",
-      element:<PostInfo data={posts} />
+      element:<PostInfo />
+    },
+    {
+      path: "/edit/:id",
+      element:<EditPost />
     }
   ]);
 
