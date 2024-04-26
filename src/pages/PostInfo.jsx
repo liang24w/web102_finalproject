@@ -10,6 +10,8 @@ const PostInfo = (props) =>  {
     const [posts, setPosts] = useState([]);
     const {id} = useParams();
     const [count, setCount] = useState(0);
+    const [newComments, setComments] = useState([]);
+    const [showPrompt, setShowPrompt] = useState(true);
 
     useEffect(() => {
         const fetchPost = async (event) => {
@@ -24,9 +26,11 @@ const PostInfo = (props) =>  {
                 // set state of posts
                 setPosts(data);
                 setCount(data.upvotes)
+                setComments(data.comments)
         }
         fetchPost()
-        console.log(posts)
+        // console.log(posts)
+        // console.log(newComments)
     }, [props]);
 
     const updateCount = async (event) => {
@@ -38,6 +42,30 @@ const PostInfo = (props) =>  {
           .eq('id', id)
       
         setCount((count) => +count + 1);
+      }
+
+      const addComment = async (newCom) => {
+        setComments([...newComments,newCom])
+        // console.log(newComments)
+      
+        const data = await supabase
+          .from('Posts')
+          .update({comments: [...newComments,newCom]})
+          .eq('id', id)
+
+          setShowPrompt(false);
+    
+      }
+
+      const submitComment = e => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            let newCom = document.getElementById('commentInput').value
+            // console.log(newComments)
+
+            addComment(newCom)
+            document.getElementById('commentInput').value = ''
+        }
       }
 
     return (
@@ -52,28 +80,22 @@ const PostInfo = (props) =>  {
                     </div>
 
                     <div className="commentSection">
-                        <p>
-                            { posts && posts.comments != null ? 
+                            { showPrompt && posts.comments.length === 0 && (<p>Be the first to leave a comment!</p>) }
                             <div>
                                 <ul>
-                                    {posts.comments.map((comment) => (
-                                    <li key={posts.id}>{comment}</li>))} 
+                                    {newComments.map((comment) => (
+                                    <li>{comment}</li>))} 
                                 </ul>
                                 <input 
+                                    id="commentInput"
+                                    autoComplete="off"
                                     className="commentInput"
                                     type="text"
+                                    onKeyDown={submitComment}
                                     placeholder="Leave a comment..."
                                 />
                             </div>
-                            : 
-                            <div>Be the first to leave a comment!
-                                <input 
-                                    className="commentInput"
-                                    type="text"
-                                    placeholder="Leave a comment..."
-                                />
-                            </div>}
-                        </p>
+                            
                     </div>
 
                     <Link to='/'><button className="back">Go Back</button></Link> 

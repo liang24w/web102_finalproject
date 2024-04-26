@@ -46,7 +46,7 @@ const ReadPosts = (props) => {
                 <input 
                     className="searchBar"
                     type="text"
-                    placeholder="Search Bar"
+                    placeholder="Search posts by title..."
                     onChange={(inputString) => searchItems(inputString.target.value)}
                 />
                 <p>
