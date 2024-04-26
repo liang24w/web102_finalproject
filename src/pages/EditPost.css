@@ -13,7 +13,6 @@ input[type=submit] {
     height: 50px;
     cursor: pointer;
     border-radius: 8px;
-    border: 1px solid transparent;
     font-size: 20px;
     font-weight: 500;
     font-family: inherit;
@@ -25,7 +24,7 @@ input[type=submit] {
   }
 
 input[type=submit]:hover {
-    border-color: #646cff;
+    border: 2px solid #646cff;
 }
 
 .deleteButton {
@@ -33,7 +32,6 @@ input[type=submit]:hover {
     height: 50px;
     cursor: pointer;
     border-radius: 8px;
-    border: 1px solid transparent;
     font-size: 20px;
     font-weight: 500;
     font-family: inherit;
@@ -43,6 +41,10 @@ input[type=submit]:hover {
     transition: border-color 0.25s;
     margin-top: 20px;
     margin-bottom: 50px;
+}
+
+.deleteButton:hover {
+  border: 2px solid #646cff;
 }
 
   .contentText {

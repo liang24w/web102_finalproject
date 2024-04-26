@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import LoadingPage from './LoadingPage';
 import './PostInfo.css'
 import upvoteLogo from '../assets/thumbsup.png'
+import more from '../assets/greenmore.png'
 
 const PostInfo = (props) =>  {
 
@@ -18,7 +19,7 @@ const PostInfo = (props) =>  {
 
             const {data} = await supabase
                 .from('Posts')
-                .select('id, title, content, upvotes, comments')
+                .select('id, title, content, upvotes, comments, created_at')
                 .eq('id', id)
                 .limit(1)
                 .single()
@@ -68,15 +69,21 @@ const PostInfo = (props) =>  {
         }
       }
 
+    const timestamp = new Date(posts.created_at)
+    const currentTime = new Date()
+    const diffHours = Math.round((currentTime - timestamp) / (1000 * 60 * 60));
+
     return (
         <div>
             { posts && posts.id != null ?
                 <div className="postSection">
+                    <Link to={'../edit/'+ posts.id}><img className="moreButton" alt="edit button" src={more} /></Link>
                     <h2>{posts.title}</h2>
                     <p>{posts.content}</p>
                     <div className="likes">
-                        <input type="image" src={upvoteLogo} className="upvote-icon" onClick={updateCount}/>
-                        <p>{count} upvotes</p>
+                        <p>Posted {diffHours} hours ago</p>
+                        <p style={{ display: 'flex', alignItems: 'center'}}><input type="image" src={upvoteLogo} className="upvote-icon" onClick={updateCount}/>
+                        {count} upvotes</p>
                     </div>
 
                     <div className="commentSection">

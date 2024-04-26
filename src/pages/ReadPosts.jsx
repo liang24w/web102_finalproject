@@ -60,13 +60,25 @@ const ReadPosts = (props) => {
             {searchInput.length > 0
                 ?
                 filteredResults.map((post,index) => 
-                   <Post id={post.id} title={post.title} content={post.content} upvotes={post.upvotes} comments={post.comments}/>
+                   <Post 
+                    id={post.id} 
+                    title={post.title} 
+                    content={post.content} 
+                    upvotes={post.upvotes} 
+                    comments={post.comments} 
+                    created_at={post.created_at}/>
                 )
                 :
-                posts && posts.length > 0 
+                posts && posts.length > 0  
                     ?
                     posts.map((post,index) => 
-                        <Post id={post.id} title={post.title} content={post.content} upvotes={post.upvotes} comments={post.comments}/>
+                        <Post 
+                            id={post.id} 
+                            title={post.title} 
+                            content={post.content} 
+                            upvotes={post.upvotes} 
+                            comments={post.comments} 
+                            created_at={post.created_at}/>
                     ) 
                     : 
                     <h3>{<LoadingPage />}</h3> 
