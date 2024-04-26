@@ -40,11 +40,30 @@ input[type=submit]:hover {
     cursor: pointer;
     transition: border-color 0.25s;
     margin-top: 20px;
-    margin-bottom: 50px;
 }
 
 .deleteButton:hover {
   border: 2px solid #646cff;
+}
+
+.cancelButton {
+  width: 60%;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #AAAAAA;
+  color:white;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin-top: 20px;
+  /* margin-bottom: 30px; */
+}
+
+.cancelButton:hover {
+border: 2px solid #646cff;
 }
 
   .contentText {
@@ -57,7 +76,7 @@ input[type=submit]:hover {
 
   .titleText {
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 50px;
     border: 1px solid black;
     border-radius: 8px;
     padding: 5px;

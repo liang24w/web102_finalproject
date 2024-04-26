@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './EditPost.css'
 import { useState, useEffect } from 'react';
 import { supabase } from '../client'
@@ -87,6 +87,7 @@ const EditPost = ({props}) => {
 
                 <input type="submit" value="Submit" onClick={updatePost}/>
                 <button className="deleteButton" onClick={deletePost}>Delete</button>
+                <Link to="/"><button className="cancelButton">Cancel</button></Link>
             </form>
             : <h3>{<LoadingPage />}</h3>}
         </div>

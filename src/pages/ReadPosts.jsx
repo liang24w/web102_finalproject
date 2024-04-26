@@ -9,6 +9,8 @@ const ReadPosts = (props) => {
     const [posts, setPosts] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [filteredResults, setFilteredResults] = useState([]);
+    const [sortedResults, setSortedResults] = useState([]);
+    const [updated, setUpdated] = useState(true)
 
     useEffect(() => {
         setPosts(props.data);
@@ -21,23 +23,43 @@ const ReadPosts = (props) => {
 
                 // set state of posts
                 setPosts(data);
+                setSortedResults(data);
+                setFilteredResults(data);
         }
         fetchPost()
-        console.log(posts)
+        // console.log(posts)
     }, [props]);
 
     const searchItems = searchValue => {
         setSearchInput(searchValue);
         if (searchValue !== "") {
-          const filteredData = posts.filter(item => 
+          const filteredData = sortedResults.filter(item => 
             typeof item.title === "string" && 
             item.title.toLowerCase().includes(searchValue.toLowerCase())
           );
           setFilteredResults(filteredData);
         } else {
-          setFilteredResults(posts);
+          setFilteredResults(sortedResults);
         }
       };
+
+      const sortNewest = () => {
+        console.log("clicked Newest sort")
+        setUpdated(!updated);
+
+        sortedResults.sort((a, b) => b.created_at.localeCompare(a.created_at));
+        setSortedResults(sortedResults);
+        // console.log(sortedResults)
+      }
+
+      function sortPopular() {
+        console.log("clicked Most Popular sort")
+        setUpdated(!updated);
+
+        sortedResults.sort((a, b) => b.upvotes - a.upvotes);
+        setSortedResults(sortedResults);
+        // console.log(sortedResults)
+      }
     
     return (
         <div className="ReadPosts">
@@ -51,48 +73,27 @@ const ReadPosts = (props) => {
                 />
                 <p>
                     {/* sort posts object by posts.created_at and posts.upvotes */}
-                    <button className="sort">Newest</button>
-                    <button className="sort">Most Popular</button> 
+                    <button className="sort" onClick={sortNewest}>Newest</button>
+                    <button className="sort" onClick={sortPopular}>Most Popular</button> 
                 </p>
 
             </div>
+
+                {posts && posts.length > 0 ?
+                    filteredResults.map((post,index) => 
+                       <Post 
+                        id={post.id} 
+                        title={post.title} 
+                        content={post.content} 
+                        upvotes={post.upvotes} 
+                        comments={post.comments} 
+                        created_at={post.created_at}/>
+                    ) :
+                    <h3>{<LoadingPage />}</h3>
+                }
             
-            {searchInput.length > 0
-                ?
-                filteredResults.map((post,index) => 
-                   <Post 
-                    id={post.id} 
-                    title={post.title} 
-                    content={post.content} 
-                    upvotes={post.upvotes} 
-                    comments={post.comments} 
-                    created_at={post.created_at}/>
-                )
-                :
-                posts && posts.length > 0  
-                    ?
-                    posts.map((post,index) => 
-                        <Post 
-                            id={post.id} 
-                            title={post.title} 
-                            content={post.content} 
-                            upvotes={post.upvotes} 
-                            comments={post.comments} 
-                            created_at={post.created_at}/>
-                    ) 
-                    : 
-                    <h3>{<LoadingPage />}</h3> 
-                
-            }
             </div>
     )
-}
-                                     
-            // {
-            //     posts && posts.length > 0 ?
-            //     posts.map((post,index) => 
-            //        <Post id={post.id} title={post.title} content={post.content} upvotes={post.upvotes} comments={post.comments}/>
-            //     ) : <h3>{<LoadingPage />}</h3>
-            // }
+}                               
 
 export default ReadPosts;

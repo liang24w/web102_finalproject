@@ -44,6 +44,10 @@ ul {
     transform: scale(1.5);
 }
 
+.upvote-icon:active {
+    transform: scale(0.8);
+}
+
 .likes {
     display: flex;
     flex-direction: row;

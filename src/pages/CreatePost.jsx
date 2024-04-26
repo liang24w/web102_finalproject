@@ -2,6 +2,7 @@ import React from 'react';
 import './CreatePost.css'
 import { useState } from 'react';
 import { supabase } from '../client'
+import { Link } from 'react-router-dom';
 
 const CreatePost = () => {
 
@@ -53,6 +54,7 @@ const CreatePost = () => {
                 <br/>
 
                 <input type="submit" value="Submit" onClick={createPost} />
+                <Link to="/"><button className="cancelButton">Cancel</button></Link>
             </form>
         </div>
     )

@@ -31,3 +31,23 @@ input[type=submit] {
 input[type=submit]:hover {
     border-color: #646cff;
 }
+
+.cancelButton {
+    width: 60%;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #AAAAAA;
+    color:white;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.cancelButton:hover {
+  border: 2px solid #646cff;
+}

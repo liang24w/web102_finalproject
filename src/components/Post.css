@@ -20,7 +20,7 @@
 }
 
 .moreButton:hover {
-    cursor: url('../assets/pbcurscolor.png'), pointer;
+    cursor: pointer;
 }
 
 .upvotes {
