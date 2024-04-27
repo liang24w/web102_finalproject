@@ -4,7 +4,7 @@ Submitted by: **Winnie Liang**
 
 This web app: **is a forum based on the Sims games, set within a Sims world. Users can create, edit, view, and interact with posts by upvoting or commenting. There are search and sorting functionalities.**
 
-Time spent: **12** hours spent in total
+Time spent: **13** hours spent in total
 
 ## Required Features
 
@@ -41,7 +41,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='web102_finalproject_demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ScreenToGif 
