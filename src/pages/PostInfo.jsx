@@ -87,6 +87,7 @@ const PostInfo = (props) =>  {
                     </div>
 
                     <div className="commentSection">
+                        <h4>Comments</h4>
                             { showPrompt && posts.comments.length === 0 && (<p>Be the first to leave a comment!</p>) }
                             <div>
                                 <ul>
