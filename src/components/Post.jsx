@@ -7,7 +7,9 @@ const Card = (props) =>  {
 
   const timestamp = new Date(props.created_at)
   const currentTime = new Date()
-  const diffHours = Math.round((currentTime - timestamp) / (1000 * 60 * 60));
+  const diffMinutes = Math.round((currentTime - timestamp) / (1000 * 60))
+  const diffHours = Math.round((diffMinutes / 60));
+  const diffDays = Math.round((diffHours / 24))
 
   return (
       <div className="Card">
@@ -18,7 +20,14 @@ const Card = (props) =>  {
           <div>{props.content}</div>
           
           <div className="upvotes">
-            <p>Posted {diffHours} hours ago</p>
+            { diffMinutes < 60 ? 
+              <p>Posted {diffMinutes} minutes ago</p>
+              :
+              diffHours < 24 ?
+                <p>Posted {diffHours} hours ago</p>
+                :
+                <p>Posted {diffDays} days ago</p>
+            }
             <p>{props.upvotes} upvotes</p>
           </div>
       </div>
