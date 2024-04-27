@@ -1,10 +1,10 @@
-# Web Development Final Project - *HobbyHub*
+# Web Development Final Project - *SimsSocial*
 
 Submitted by: **Winnie Liang**
 
-This web app: **insert description**
+This web app: **is a forum based on the Sims games, set within a Sims world. Users can create, edit, view, and interact with posts by upvoting or commenting. There are search and sorting functionalities.**
 
-Time spent: **10** hours spent in total
+Time spent: **12** hours spent in total
 
 ## Required Features
 
@@ -15,7 +15,7 @@ The following **required** functionality is completed:
 - [x] **A home feed displaying previously created posts**
 - [x] **By default, the time created, title, and number of upvotes for each post is shown on the feed**
 - [x] **Clicking on a post shall direct the user to a new page for the selected post**
-- [ ] **Users can sort posts by either their created time or upvotes count**
+- [x] **Users can sort posts by either their created time or upvotes count**
 - [x] **Users can search for posts by title**
 - [x] **A separate post page for each created post, where any additional information is shown is linked whenever a user clicks a post**
 - [x] **Users can leave comments underneath a post on the post's separate page**
@@ -35,7 +35,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you added to improve the site's functionality!
+* [x] A custom cursor
 
 ## Video Walkthrough
 
@@ -52,7 +52,7 @@ GIF created with ScreenToGif
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Updating the supabase database from interacting with elements on the website (such as the upvote counter) took the longest. The issue ended up being not with code, but with policies for the supabase project that had to be enabled to allow updates. Figuring out how to update the site in real-time to reflect the updated database's information was also challenging. 
 
 ## License
 
